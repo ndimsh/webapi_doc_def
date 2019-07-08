@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Our API</title>
+    
+<style>
+a {
+color:#48acbd;
+text-decoration:none;
+}
+
+a:visited {
+color:#388c9a;
+}
+
+a:hover {
+color:#9dd4e1;
+text-decoration:none;
+}
+
+.site-header {
+background-color:#fff;
+position:fixed;
+width:100%;
+top:0;
+border-bottom:1px solid #e5e5e5;
+z-index:100;
+overflow:hidden;
+}
+
+.site-nav {
+width:100vw;
+text-align:center;
+line-height:3.5rem;
+}
+
+.site-nav .page-link {
+position:relative;
+display:inline-block;
+vertical-align:middle;
+color:#333;
+line-height:1.5;
+box-sizing:padding-box;
+outline:none;
+padding:0 .5rem;
+}
+
+.site-nav .page-link:not(:last-child) {
+margin-right:20px;
+}
+
+/*
+.site-nav .page-link:nth-child(3) {
+font-size:1.5rem;
+padding:0 1rem;
+}
+*/
+
+.site-nav .page-link:after {
+display:block;
+content:"";
+border-bottom:2px solid #fdb41b;
+width:100%;
+transform:scaleX(0);
+transition:all .2s ease;
+}
+
+.site-nav .page-link.active:after,.site-nav .page-link:hover:after {
+transform:scaleX(1.2);
+display:block;
+content:"";
+border-bottom:2px solid #fdb41b;
+width:100%;
+}
+
+.toggle-button {
+display:none;
+width:35px;
+height:30px;
+float:left;
+-webkit-backface-visibility:hidden;
+backface-visibility:hidden;
+transform:rotate(0deg);
+transition:.3s ease-in-out;
+cursor:pointer;
+margin:calc((3.5rem-35px) -50px calc((3.5rem-35px) calc((3.5rem-35px);
+}
+
+.toggle-button span {
+display:block;
+position:absolute;
+height:6px;
+width:100%;
+background:#f7d16f;
+border-radius:9px;
+opacity:1;
+left:0;
+transform:rotate(0deg);
+transition:.25s ease-in-out;
+}
+
+.toggle-button span:first-child {
+top:0;
+}
+
+.toggle-button span:nth-child(2),.toggle-button span:nth-child(3) {
+top:12px;
+}
+
+.toggle-button span:nth-child(4) {
+top:24px;
+}
+
+.mobile-header {
+display:none;
+background:#fff;
+position:fixed;
+width:100%;
+height:3.5rem;
+z-index:3;
+border-bottom:1px solid #ebebeb;
+transition:transform .3s ease;
+}
+
+.mobile-header .logo {
+text-align:center;
+font-weight:700;
+font-size:1.2rem;
+line-height:3.5rem;
+}
+
+
+@media screen and (max-width: 780px) {
+    .site-header {
+    overflow:hidden;
+    display:none;
+    }
+
+    .site-nav {
+    width:100%;
+    }
+
+    .slideout-menu {
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    z-index:0;
+    width:255px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    display:none;
+    border-right:1px solid #ebebeb;
+    }
+
+    .slideout-panel {
+    position:relative;
+    z-index:1;
+    will-change:transform;
+    background-color:#fff;
+    }
+
+    .slideout-open,.slideout-open .slideout-panel,.slideout-open body {
+    overflow:hidden;
+    }
+
+    .fixed-open {
+    transform:translate3d(256px,0,0);
+    }
+
+    .site-nav .page-link {
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    margin:1rem 0;
+    }
+
+    .site-nav .page-link:after {
+    width:50%!important;
+    }
+
+    .site-nav .page-link.active:after,.site-nav .page-link:active:after,.site-nav .page-link:hover:after {
+    width:50%;
+    margin:0 auto;
+    }
+
+    .mobile-header,.site-header,.slideout-open .slideout-menu,.toggle-button {
+    display:block;
+    }
+}
+
+.page-content {
+padding-top:3.5rem;
+min-height:calc(100vh-7rem);
+}
+
+</style>
+</head>
+<body>
+    <div class="mobile-header">
+        <div class="toggle-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo"> TEST </div>
+    </div>
+    
+    <header class="site-header slideout-menu" id="menu">
+        <nav class="site-nav">
+            <a class="page-link" href="https://apis.guru/">Home</a>
+            <a class="page-link" href="https://apis.guru/openapi-directory/">Directory</a>
+            <a class="page-link" href="https://apis.guru/browse-apis/">Browse APIs</a>
+            <a class="page-link" href="https://blog.apis.guru/">Blog</a>
+            <a class="page-link" href="https://apis.guru/api-doc/">Our API</a>
+            <a class="page-link" href="https://apis.guru/api-doc/">Our API</a>
+            <a class="page-link active" href="https://apis.guru/api-doc/">Our API</a>
+        </nav>
+    </header>
+
+    <div class="page-content slideout-panel" id="content">
+        <redoc spec-url="http://rebilly.github.io/RebillyAPI/openapi.json" scroll-y-offset="#menu" _nghost-c0="" ng-version="4.4.6" class=""></redoc>
+        <script src="node_modules/redoc/bundles/redoc.standalone.js"> </script>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.12/slideout.js"></script>
+</html>
